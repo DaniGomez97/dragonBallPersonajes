@@ -1,0 +1,48 @@
+
+@font-face {
+  font-family: 'Saiyan Sans';
+  src: url('../fonts/Saiyan-Sans.ttf') format('truetype'); /* Ajusta la ruta según sea necesario */
+}
+
+p {
+  position: relative; /* Cambia a relative para que se mueva con el scroll */
+  top: 30px; /* Alinea el título en la parte superior */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Centrado perfecto */
+  color: yellow;
+  font-family: 'Saiyan Sans', sans-serif;
+  font-size: 100px;
+  text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,  
+    -1px 1px 0 #000,  
+    1px 1px 0 #000;
+  z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+  margin-top: 20px; /* Espacio arriba del título */
+}
+
+p span {
+  color: red;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+.read-the-docs {
+  color: #888;
+}
+
+.fondo {
+  position: fixed; /* Fija la imagen en la pantalla */
+  top: 0; /* Alinea la imagen en la parte superior */
+  left: 0; /* Alinea la imagen en la parte izquierda */
+  width: 100%; /* Ocupa el 100% del ancho de la pantalla */
+  height: 100%; /* Ocupa el 100% de la altura de la pantalla */
+  object-fit: cover; /* Asegúrate de que la imagen cubra toda el área sin deformarse */
+  z-index: -1; /* Coloca la imagen detrás de otros elementos */
+}

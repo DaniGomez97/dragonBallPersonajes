@@ -1,0 +1,86 @@
+
+@font-face {
+    font-family: 'Saiyan Sans';
+    src: url('../fonts/Saiyan-Sans.ttf') format('truetype'); /* Ajusta la ruta según sea necesario */
+}
+.boton {
+    position: relative; /* Necesario para posicionar el pseudo-elemento */
+    background-color: red;
+    color: yellow;
+    font-family: 'Saiyan Sans', sans-serif; /* Usa la fuente en el cuerpo o en los elementos que desees */
+    font-size: 50px;
+    text-shadow: 
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,  
+        -1px 1px 0 #000,  
+         1px 1px 0 #000; /* Agrega un borde negro */
+    overflow: hidden; /* Para ocultar las llamas que se desbordan */
+    transition: transform 0.3s; /* Suaviza el agrandamiento del botón */
+}
+
+.boton::before {
+    content: ""; /* Crea un pseudo-elemento */
+    position: absolute; /* Posiciona el elemento */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    width: 150%; /* Aumenta el tamaño para crear el efecto de llama */
+    height: 150%; /* Aumenta el tamaño para crear el efecto de llama */
+    background: radial-gradient(circle, rgba(255, 165, 0, 0.5) 30%, rgba(255, 0, 0, 0) 70%); /* Color de llama */
+    border-radius: 50%; /* Hace que el fondo tenga bordes redondeados */
+    transform: translate(-50%, -50%) scale(0); /* Oculto inicialmente */
+    transition: transform 0.3s; /* Suaviza la animación */
+    z-index: 0; /* Asegúrate de que esté detrás del texto del botón */
+}
+
+.boton:hover {
+    transform: scale(1.1); /* Agranda el botón ligeramente al pasar el mouse */
+}
+
+.boton:hover::before {
+    animation: flame 0.5s forwards; /* Llama a la animación al hacer hover */
+}
+
+@keyframes flame {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 1; /* Totalmente visible al inicio */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.6; /* Un poco transparente en el medio */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0; /* Desaparece al final */
+    }
+}
+.boton-desactivado {
+    background-color: black;
+    color: yellow;
+    font-family: 'Saiyan Sans', sans-serif;
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    transition: transform 0.3s; /* Suaviza el agrandamiento del botón */
+}
+
+.boton-desactivado:hover {
+    transform: scale(1.05); /* Mantiene el botón agrandado pero evita vibraciones */
+    /* Puedes agregar un efecto de sombra o color si quieres mejorar la interacción */
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.7); /* Ejemplo de sombra */
+}
+.contenedor-btn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; /* Espacio entre el título y el botón, ajusta según necesites */
+}
+.contenedor-desactivado{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start; /* Coloca el contenido en la parte superior */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+}
