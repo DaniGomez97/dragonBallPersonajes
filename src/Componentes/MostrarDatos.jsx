@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion";  
 import traerDatos from "../funciones/traerDatos";
 import "../hojas-de-estilo/mostrar-datos.css";
+import BarraBusqueda from "./BarraBusqueda";
 
 function MostrarDatos() {
   const [data, setData] = useState(null);
@@ -10,38 +11,36 @@ function MostrarDatos() {
   const [itemsToShow, setItemsToShow] = useState(6);
   const navigate = useNavigate();
 
-  const [searchTerm, setSearchTerm] = useState(""); // Estado para la búsqueda
-
   useEffect(() => {
     traerDatos("https://dragonball-api.com/api/characters?limit=58", setData);
   }, []);
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value.toLowerCase()); // Convertir a minúsculas
-  };
-
-  useEffect(() => {
+  const handleSearchChange = (searchTerm) => {
     if (data && data.items) {
       const filteredItems = data.items.filter(
-        (item) => item.name.toLowerCase().includes(searchTerm) // Filtra por nombre
+        (item) => item.name.toLowerCase().includes(searchTerm) 
+// se filtran los elementos de data.items comparando si el nombre del personaje incluye el término de búsqueda en minúsculas (searchTerm).
       );
       setVisibleItems(filteredItems.slice(0, itemsToShow)); // Actualiza los elementos visibles
     }
-  }, [data, itemsToShow, searchTerm]); // Agrega searchTerm como dependencia
+  };
+
+  useEffect(() => {
+    if (data) {
+      setVisibleItems(data.items.slice(0, itemsToShow)); // Inicialmente muestra los elementos
+    }
+  }, [data, itemsToShow]);
 
   useEffect(() => {
     const handleScroll = () => {
-      const { scrollTop, scrollHeight, clientHeight } =
-        document.documentElement;
+      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
-      // Verificamos si estamos a 100px o menos del final de la página
       if (scrollTop + clientHeight >= scrollHeight - 100) {
         setItemsToShow((prev) => Math.min(prev + 6, data.items.length));
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -59,13 +58,7 @@ function MostrarDatos() {
   return (
     <>
       <div className="contenedor-buscador">
-        <input
-          className="buscador"
-          type="text"
-          placeholder="Buscar personaje..."
-          value={searchTerm}
-          onChange={handleSearchChange} //
-        />
+        <BarraBusqueda onSearchChange={handleSearchChange} /> {/* Pasa la función de búsqueda */}
       </div>
 
       <div className="contenedor">
