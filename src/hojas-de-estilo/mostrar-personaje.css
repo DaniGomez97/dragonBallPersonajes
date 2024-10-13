@@ -61,7 +61,6 @@
     
     &:hover {
         transform: scale(1.3); /* Agranda ligeramente la imagen al pasar el mouse */
-        cursor: pointer;
     }
 }
 

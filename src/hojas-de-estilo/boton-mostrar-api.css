@@ -78,9 +78,3 @@
     justify-content: center;
     margin-top: 10px; /* Espacio entre el título y el botón, ajusta según necesites */
 }
-.contenedor-desactivado{
-    display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: flex-start; /* Coloca el contenido en la parte superior */
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-}

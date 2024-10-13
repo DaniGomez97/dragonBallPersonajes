@@ -13,9 +13,23 @@
     gap: 50px;
     justify-items: center;
     z-index: 1; /* Asegúrate de que los personajes estén detrás del título */
-    margin-top: -60px; /* Asegúrate de que el contenido empiece debajo del título */
-
 }
+.contenedor-buscador {
+    display: flex;            /* Habilita el uso de Flexbox */
+    justify-content: center;  /* Centra horizontalmente el contenido */
+    margin-bottom: 20px;     /* Espacio entre el buscador y los personajes */
+  }
+  
+  .buscador {
+    width: 80%;              /* Ancho del input */
+    max-width: 400px;       /* Ancho máximo para mantener un buen diseño */
+    padding: 10px;          /* Espaciado interno */
+    font-size: 16px;        /* Tamaño de fuente */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 10px;     /* Bordes redondeados */
+    margin-top: -60px;
+    margin-bottom: 20px;
+  }
 
 .contenedor-images {
     width: 300px;
