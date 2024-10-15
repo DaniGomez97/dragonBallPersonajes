@@ -1,81 +1,142 @@
 
-.titulo-principal{
+.transformaciones-contenedor {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Alinea el texto al centro */
+    width: 100%; 
+}
+.ki-Class{
+    font-family: sans-serif;
+    font-size: medium;
+    align-items: center;
+    color: white;
+}
+.titulo-principal {
     font-family: 'Saiyan Sans', sans-serif;
     font-size: 100px;
-    text-shadow: 
-      -1px -1px 0 #000,  
-      1px -1px 0 #000,  
-      -1px 1px 0 #000,  
-      1px 1px 0 #000;
-
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.titulo-secundario{
+.titulo-secundario {
     font-family: 'Saiyan Sans', sans-serif;
     font-size: 70px;
-    text-shadow: 
-      -1px -1px 0 #000,  
-      1px -1px 0 #000,  
-      -1px 1px 0 #000,  
-      1px 1px 0 #000;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.parrafo{
+.imagen-planeta {
+    height: auto;
+    width: 70%;
+}
+
+.imagen-personaje {
+    height: auto;
+    width: 20%;
+}
+
+.parrafo {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: white;
-    text-shadow: 
-    -1px -1px 0 #000,  
-    1px -1px 0 #000,  
-    -1px 1px 0 #000,  
-    1px 1px 0 #000;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
-.transformaciones-contenedor{
-    margin-top: -40px;
-    width: 100%;
+
+.titulo-transformacion {
+    font-family: 'Saiyan Sans', sans-serif;
+    font-size: 70px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.grid-transformaciones {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 50px;
-    justify-items: center;
-    text-align: center; /* Centro los elementos de texto dentro del contenedor */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px;
+    width: 100%; 
+    justify-items: center; /* Centra los elementos en cada celda */
 }
 
-.contenedor-img-transformaciones{
-    width: 300px;
-    height: 300px; /* Establece una altura fija para todos los contenedores de imágenes */
-    display: flex; /* Para centrar el contenido */
+
+.transformacion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center; 
+}
+
+.contenedor-img-transformaciones {
+    display: flex;
     justify-content: center;
-    align-items: center; /* Centra verticalmente */
-    margin-left: 40px;
-    margin-right: 30px;  
+    align-items: center;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
 }
 
-.imagen-transformacion { 
-    transition: all 0.3s ease-in-out; /* Transición suave */
-    width: 100%; /* Ocupa el 100% del contenedor */
-    height: auto; /* Mantiene la proporción de aspecto */
-    min-width: 380px; /* Mantiene un ancho mínimo para imágenes pequeñas */
-    max-height: 450px; /* Asegúrate de que no exceda la altura del contenedor */
-    object-fit: contain; /* Mantiene la proporción y no recorta */
-    
-    &:hover {
-        transform: scale(1.3); /* Agranda ligeramente la imagen al pasar el mouse */
-    }
+.imagen-transformacion {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    min-width: 180px;
+    max-height: 450px;
+    transition: all 0.3s ease-in-out;
+}
+
+.imagen-transformacion:hover {
+    transform: scale(1.3);
+}
+
+.titulo-transformacion-personaje{
+
+    text-align: center;
 }
 
 /* Media Queries */
 @media (max-width: 1024px) {
-    .transformaciones-contenedor{
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tabletas */
+    .grid-transformaciones {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas  */
     }
 }
 
 @media (max-width: 768px) {
-    .transformaciones-contenedor {
-        grid-template-columns: 1fr; /* Una columna en móviles */
+    .grid-transformaciones {
+        grid-template-columns: 1fr; /* Una columna */
+        gap: 20px; /* Espacio entre las filas */
     }
-    .contenedor-img-transformaciones{ 
-        max-width: 90%; /* Mantén un ancho más reducido en móviles */
+    .titulo-principal {
+        font-family: 'Saiyan Sans', sans-serif;
+        font-size: 40px;
+        text-align: center;
+        margin: 0;
+    }  
+    .titulo-transformacion {
+        font-size: 45px;
     }
+    .titulo-transformacion-personaje {
+        font-size: 24px;
+    }
+    .imagen-personaje {
+        height: auto;
+        width: 50%;
+    } 
+    .imagen-planeta {
+        height: auto;
+        width: 100%;
+    }
+    .imagen-transformacion {
+        width: 100%;
+        max-height: 300px;
+        object-fit: contain;
+        min-width: 180px;
+        max-height: 450px;
+    }
+    .contenedor-img-transformaciones {
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
 }

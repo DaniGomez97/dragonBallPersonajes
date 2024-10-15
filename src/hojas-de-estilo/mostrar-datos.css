@@ -12,13 +12,13 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 50px;
     justify-items: center;
-    z-index: 1; /* Asegúrate de que los personajes estén detrás del título */
+    z-index: 1; /* personajes estén detrás del título */
 }
 
 .contenedor-images {
     width: 300px;
-    height: 300px; /* Establece una altura fija para todos los contenedores de imágenes */
-    display: flex; /* Para centrar el contenido */
+    height: 300px; 
+    display: flex; 
     justify-content: center;
     align-items: center; /* Centra verticalmente */
     margin-left: 40px;
@@ -27,10 +27,10 @@
 }
 
 .imagen { 
-    transition: all 0.3s ease-in-out; /* Transición suave */
-    width: 100%; /* Ocupa el 100% del contenedor */
-    height: auto; /* Mantiene la proporción de aspecto */
-    max-height: 100%; /* Asegúrate de que no exceda la altura del contenedor */
+    transition: all 0.3s ease-in-out;
+    width: 100%; 
+    height: auto; 
+    max-height: 100%; 
     object-fit: contain; /* Mantiene la proporción y no recorta */
 }
    .imagen:hover {
@@ -39,7 +39,7 @@
    }
  
    .titulo-personaje{
-    font-family: 'Saiyan Sans', sans-serif; /* Usa la fuente en el cuerpo o en los elementos que desees */
+    font-family: 'Saiyan Sans', sans-serif;
     color: white;
     text-shadow: 1px 1px 5px #000;
 
@@ -50,15 +50,15 @@
 /* Media Queries */
 @media (max-width: 1024px) {
     .contenedor {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en tabletas */
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas*/
     }
 }
 
 @media (max-width: 768px) {
     .contenedor {
-        grid-template-columns: 1fr; /* Una columna en móviles */
+        grid-template-columns: 1fr; /* Una columna */
     }
     .contenedor-images {
-        max-width: 90%; /* Mantén un ancho más reducido en móviles */
+        max-width: 90%; 
     }
 }
